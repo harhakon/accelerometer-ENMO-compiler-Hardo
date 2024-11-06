@@ -7,12 +7,12 @@
 #define NN ((double)SECS * (double)HZ)
 #define NNN HZ*WMIN*60
 
-char SAVPATH[200] = "C:\\Users\\hakoha\\Documents\\";     /* raakadata hakemisto, MUUTA TÄTÄ, muista käyttää \\  */
-char KALIBR[50] = "kalibr.txt";            /* mittarien kalibrointikertoimet, jos sitä ei ole niin ei kalibrointia */
-char RAWFILES[50] = "rawfiles.txt";        /* mittaritiedostot jotka käsitellään, helpointa tehdä -> tiedostot.xlsx */
+char SAVPATH[200] = "C:\\Users\\hakoha\\Documents\\";     /* raw data directory .csv, remember "\\"  */
+char KALIBR[50] = "kalibr.txt";            /* file with calibration coefficients, (format: axivity id, scale x, scale y scale z, offset x, offset y, offset z) */
+char RAWFILES[50] = "rawfiles.txt";        /* text file with the processed raw data files with paths */
 
-double bfa[9] = { 1,-5.56637844,13.5626697,-19.07259356,17.08046126,-10.01575927,3.74451246,-0.81199192,0.07907978 }; /*  4 as arma filtteröintikertoimet a - oletus 0,2 - 15 Hz- oletus 0,2 - 15 Hz */
-double bfb[9] = { 0.0177713 ,0,-0.07108521 ,0,0.10662781 ,0,-0.07108521 ,0,0.0177713 };  /*  4 as arma filtteröintikertoimet b - oletus 0,2 - 15 Hz   */
+double bfa[9] = { 1,-5.56637844,13.5626697,-19.07259356,17.08046126,-10.01575927,3.74451246,-0.81199192,0.07907978 }; /*  fourth-order ARMA coefficients of the band-pass filter a (0,2 - 15 Hz) */
+double bfb[9] = { 0.0177713 ,0,-0.07108521 ,0,0.10662781 ,0,-0.07108521 ,0,0.0177713 };  /*   fourth-order ARMA coefficients of the band-pass filter b (0,2 - 15 Hz)  */
 
 
 
