@@ -11,33 +11,33 @@ char SAVPATH[200] = "C:\\Users\\hakoha\\Documents\\";     /* raw data directory 
 char KALIBR[50] = "kalibr.txt";            /* file with calibration coefficients, (format: axivity id, scale x, scale y scale z, offset x, offset y, offset z) */
 char RAWFILES[50] = "rawfiles.txt";        /* text file with the processed raw data files with paths */
 
-double bfa[9] = { 1,-5.56637844,13.5626697,-19.07259356,17.08046126,-10.01575927,3.74451246,-0.81199192,0.07907978 }; /*  fourth-order ARMA coefficients of the band-pass filter a (0,2 - 15 Hz) */
+double bfa[9] = { 1,-5.56637844,13.5626697,-19.07259356,17.08046126,-10.01575927,3.74451246,-0.81199192,0.07907978 }; /*  fourth-order ARMA coefficients of the butterworth band-pass filter a (0,2 - 15 Hz) */
 double bfb[9] = { 0.0177713 ,0,-0.07108521 ,0,0.10662781 ,0,-0.07108521 ,0,0.0177713 };  /*   fourth-order ARMA coefficients of the band-pass filter b (0,2 - 15 Hz)  */
 
 
 
-int SECS = 1;   /* käytetty epookki sek */
-int HZ=100;     /* käytetty mittaritaajuus HZ */
-int UNS=5;      /* ranteen kulman laskuun käytetty jakson pituus sec */
-int STAX=2;    /* akselien määrä, joita käytetään määritellessä non-wear aikaa */
-int WMIN = 15; /* non-wear timeen käytetty jakson pituus min */
-double STDg = 13;  /* max hajonta, jota käytetään määritellessä non-wear aikaa */
-double AxRan = 50;  /* max kiihtyvyysväli, jota käytetään määritellessä non-wear aikaa */
+int SECS = 1;   /* used epoch sec (usually 1) */
+int HZ=100;     /* used accelerometer HZ */
+int UNS=5;      /* the length of the period used to decrease the wrist angle sec (recommended 5 sec) */
+int STAX=2;    /* the number of axles /3 used to define the non-wear time (recommended 2) */
+int WMIN = 15; /* length of period used for non-wear time min (recommended 15 min) */
+double STDg = 13;  /* max std used to define the non-wear time (recommended 13 mG) */
+double AxRan = 50;  /* acceleration range (mg) used to define the non-wear time (recommended 50 mG) */
 int JAKO = 2;
 
-int ENM=0;  /* 0=ENMO (MAX 0), 1=ENMO (abs), 2=EN */
-int mad=0;  /* lasketaanko madit 0/1  */
-int bf=0;   /* käytetäänkö butterworth filtteröintiä 0/1  */ 
-int sd=2;   /* 2 = lasketaan ranteen kulma ja non-wear aika, 1 = non-wear aika, 0 = vain enmo  */
+int ENM=0;  /* ENMO calculation formula...  0=ENMO [MAX 0], 1=ENMO [abs], 2=ENMO [raw G] (usually 0) */
+int mad=0;  /* including MADs (0 = no 1 = yes)  */
+int bf=0;   /* the butterworth band-pass filter (0 = no 1 = yes)  (coefficients above) */ 
+int sd=2;   /* 0 = only ENMO 1 ENMO+Non Wear 2 = ENMO+Non Wear+wrist angle */
 
-int STEPHZ = 15;   /* askeleet: askeleiden taajuus HZ, 0 = ei askelia */
-double PEAKTR = 1.2;    /* askeleet: huipun kynnys g  */ 
-double VARTRE = 0.01; /* askeleet: varianssikynnys */
-int CONTRE = 6;    /* askeleet: continuity treshold per STEPHZ  */
-int CONWIN = 5;    /* askeleet: continuity window per STEPHZ */
-int SIMTRE = 1;    /* askeleet: similarity kynnys g  */
-int MINP = 3;      /* askeleet: huippujen minimiväli per STEPHZ */
-int MST = 1;       /* askeleet: suurin aikaväli askelten välillä s */  
+int STEPHZ = 15;   /* STEPS: step frequency (recommended 15), 0 = no steps are counted (Windowed Peak Detection) */
+double PEAKTR = 1.2;    /* STEPS: peak threshold g  (recommended 1.2 g) */ 
+double VARTRE = 0.01; /* STEPS: threshold variance (recommended 0.01) */
+int CONTRE = 6;    /* STEPS: continuity treshold per STEPHZ (recommended 6)  */
+int CONWIN = 5;    /* STEPS: continuity window per STEPHZ (recommended 5) */
+int SIMTRE = 1;    /* STEPS: similarity treshold g  (recommended 1)  */
+int MINP = 3;      /* STEPS: minimum peak spacing per STEPHZ (recommended 3) */
+int MST = 1;       /* STEPS: maximum time interval between steps s (recommended 1) */  
 
 int sleep(int x);
 
