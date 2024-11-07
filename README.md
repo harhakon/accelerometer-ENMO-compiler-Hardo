@@ -11,3 +11,5 @@ Works well with the Axivity model accelerometer, other models may need adjustmen
 - the length of the nonwear time is determined from the first time point of the period.
 
 - Epoch file format (time, enmo (mad), wrist angle, nonwear time, steps)
+
+- use, for example, with the tcc (The Tiny C Compiler) program (dos> tcc -run Har_do.c)  or equivalent.
