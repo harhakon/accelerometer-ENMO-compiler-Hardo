@@ -9,7 +9,7 @@
 
 char SAVPATH[200] = "C:\\Users\\hakoha\\Documents\\";     /* raw data directory .csv, remember "\\"  */
 char KALIBR[50] = "kalibr.txt";            /* file with calibration coefficients, (format: axivity id, scale x, scale y scale z, offset x, offset y, offset z) */
-char RAWFILES[50] = "rawfiles.txt";        /* text file with the processed raw data files with paths */
+char RAWFILES[50] = "rawfiles.txt";        /* text file with the raw data files with paths */
 
 double bfa[9] = { 1,-5.56637844,13.5626697,-19.07259356,17.08046126,-10.01575927,3.74451246,-0.81199192,0.07907978 }; /*  fourth-order ARMA coefficients of the butterworth band-pass filter a (0,2 - 15 Hz) */
 double bfb[9] = { 0.0177713 ,0,-0.07108521 ,0,0.10662781 ,0,-0.07108521 ,0,0.0177713 };  /*   fourth-order ARMA coefficients of the band-pass filter b (0,2 - 15 Hz)  */
