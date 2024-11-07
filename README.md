@@ -9,3 +9,5 @@ Works well with the Axivity model accelerometer, other models may need adjustmen
 - Possible to use Butterworth filtering.
 
 - the length of the nonwear time is determined from the first time point of the period.
+
+- Epoch file format (time, enmo (mad), wrist angle, nonwear time, steps)
