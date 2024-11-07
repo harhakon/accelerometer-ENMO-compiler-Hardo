@@ -7,7 +7,7 @@
 #define NN ((double)SECS * (double)HZ)
 #define NNN HZ*WMIN*60
 
-char SAVPATH[200] = "C:\\Users\\hakoha\\Documents\\";     /* raw data directory .csv, remember "\\"  */
+char SAVPATH[200] = "C:\\Users\\hakoha\\Documents\\";     /* epoch data directory .csv, remember "\\"  */
 char KALIBR[50] = "kalibr.txt";            /* file with calibration coefficients, (format: axivity id, scale x, scale y scale z, offset x, offset y, offset z) */
 char RAWFILES[50] = "rawfiles.txt";        /* text file with the raw data files with paths */
 
